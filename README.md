@@ -35,9 +35,22 @@ pose-image-tool/
 |---|---|---|
 | ![](samples/ref_01.png) | ![](samples/pose_01.png) | ![](samples/output_01.png) |
 | ![](samples/ref_02.png) | ![](samples/pose_02.png) | ![](samples/output_02.png) |
+| (사진 없음, 좌표로 직접 그림) | ![](samples/pose_03.png) | ![](samples/output_03.png) |
 
 - 포즈 1: 손을 주머니에 넣고 선 자세 → 결과도 흰 가운 주머니에 손을 넣고 같은 자세로 섰습니다.
 - 포즈 2: 두 손을 머리 위로 올린 자세 → 팔꿈치를 벌리고 손을 머리 위로 올린 모양이 그대로 나왔습니다. 다만 손은 안전모를 붙잡는 모양으로 바뀌었습니다.
+- 포즈 3: 하늘을 나는 자세(한 팔은 하늘로, 한 팔은 옆으로, 한쪽 무릎 굽힘) → 자세는 그대로 나왔지만, 배경이 공장이라 나는 게 아니라 춤추는 것처럼 보였습니다.
+
+### 포즈 3 — 하늘을 나는 자세
+따라 할 사진이 없어서 OpenPose 관절 18개의 좌표를 숫자로 정해 뼈대를 직접 그렸습니다(노트의 셀 9-2).
+
+| 직접 그린 뼈대 | 공장 작업자 프롬프트 | 하늘 프롬프트 |
+|---|---|---|
+| ![](samples/pose_03.png) | ![](samples/output_03.png) | ![](samples/output_03_sky.png) |
+
+하늘 프롬프트: `a young man in a green hoodie and jeans flying high in the bright blue sky above white clouds, one arm reaching up to the sky, wind in his hair, full body, photorealistic` (시드 7)
+
+같은 뼈대라도 배경을 하늘·구름으로 적어야 '나는 장면'이 됩니다. 처음 쓴 "superhero in a red cape" 프롬프트는 유명 만화 캐릭터와 거의 같은 그림이 나와서 평범한 인물로 바꿨습니다.
 
 ### 같은 포즈, 다른 프롬프트 (실험 A)
 | 우주비행사 | 요리사 | 기사(유화) |
@@ -59,4 +72,5 @@ pose-image-tool/
 ## 참조 사진 출처와 라이선스
 - ref_01: Hugging Face `documentation-images` 데이터셋의 예시 사진(person.png)
 - ref_02: 실존 인물 사진을 쓰지 않으려고 SD 1.5로 직접 생성한 사진
+- pose_03: 사진 없이 관절 좌표로 직접 그린 뼈대
 - Stable Diffusion 1.5: CreativeML OpenRAIL-M / ControlNet v1.1 OpenPose: OpenRAIL
